@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính đơn giản</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .calculator {
+            width: 300px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        #display {
+            background-color: #222;
+            color: #00ff00;
+            font-size: 28px;
+            text-align: right;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            min-height: 35px;
+            word-wrap: break-word;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        button {
+            padding: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        button:hover {
+            background-color: #ddd;
+        }
+        .btn-clear {
+            background-color: #ca1f1f;
+            color: white;
+        }
+        .btn-clear:hover {
+            background-color: #a81717;
+        }
+        .btn-operator {
+            background-color: #0056b3;
+            color: white;
+        }
+        .btn-equals {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <div id="display">0</div>
+        <div class="buttons">
+            <button class="btn-clear">Clear</button>
+            <button class="btn-operator">/</button>
+            <button class="btn-operator">*</button>
+            <button class="btn-operator">-</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button class="btn-operator">+</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button class="btn-equals">=</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>0</button>
+        </div>
+    </div>
+
+    <script>
+        const manHinh = document.getElementById('display');
+        const danhSachNut = document.querySelectorAll('button');
+
+        danhSachNut.forEach(function(nut) {
+            nut.addEventListener('click', function() {
+                const giaTri = nut.innerText;
+
+                if (giaTri === 'Clear') {
+                    manHinh.innerText = '0';
+                } else if (giaTri === '=') {
+                    try {
+                        manHinh.innerText = eval(manHinh.innerText);
+                    } catch (error) {
+                        manHinh.innerText = 'Lỗi';
+                    }
+                } else {
+                    if (manHinh.innerText === '0' || manHinh.innerText === 'Lỗi') {
+                        manHinh.innerText = giaTri;
+                    } else {
+                        manHinh.innerText += giaTri;
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
