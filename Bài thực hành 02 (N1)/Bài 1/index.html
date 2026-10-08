@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thư Viện PTIT</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="js/main.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Thư Viện Của Lớp</h1>
+    <div class="header-actions">
+      <span>Yêu thích: <strong id="fav-count">0</strong></span>
+      <button id="theme-toggle">Sáng/Tối</button> <!-- Nâng cao -->
+    </div>
+  </header>
+
+  <main>
+    <section class="toolbar">
+      <input type="text" id="search-input" placeholder="Tìm tên sách...">
+      <select id="genre-select">
+        <option value="all">Tất cả thể loại</option>
+      </select>
+    </section>
+
+    <p id="status-text">Đang hiển thị 0 / 0 cuốn</p>
+    <div id="loading" class="hidden">Đang tải...</div>
+
+    <!-- Lưới sách (Grid/Flexbox) -->
+    <section id="book-list" class="book-grid"></section>
+
+    <!-- Form thêm sách -->
+    <section class="add-book-section">
+      <h2>Thêm sách mới</h2>
+      <form id="add-book-form" novalidate>
+        <div class="form-group">
+          <input type="text" id="title" placeholder="Tên sách (từ 3 ký tự)">
+          <span class="error" id="title-err"></span>
+        </div>
+        <div class="form-group">
+          <input type="text" id="author" placeholder="Tác giả">
+          <span class="error" id="author-err"></span>
+        </div>
+        <div class="form-group">
+          <input type="text" id="genre" placeholder="Thể loại (VD: Khoa học, Văn học...)">
+          <span class="error" id="genre-err"></span>
+        </div>
+        <div class="form-group">
+          <input type="number" id="year" placeholder="Năm xuất bản">
+          <span class="error" id="year-err"></span>
+        </div>
+        <button type="submit">Thêm Sách</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

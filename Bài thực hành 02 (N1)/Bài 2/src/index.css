@@ -1,0 +1,104 @@
+:root {
+  --bg-color: #f4f7f6;
+  --text-color: #333;
+  --card-bg: #ffffff;
+  --primary: #0056b3;
+  --border: #ddd;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0; padding: 0;
+}
+
+header {
+  background-color: var(--card-bg);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+header h1 { margin: 0; font-size: 1.5rem; color: var(--primary); }
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+.toolbar {
+  display: flex; gap: 10px; margin-bottom: 15px;
+}
+.toolbar select {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  outline: none;
+  min-width: 200px;
+}
+
+#status-text { font-style: italic; color: gray; margin-bottom: 20px; }
+
+/* Grid Sách */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 768px) {
+  .book-grid { grid-template-columns: 1fr; }
+}
+
+/* Thẻ Sách */
+.book-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+.book-card h3 { margin: 0 0 10px 0; color: var(--primary); font-size: 1.2rem; }
+.book-card p { margin: 5px 0; font-size: 0.95rem; }
+
+/* Khung chứa 2 nút (Nằm ngang) */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: auto; 
+  padding-top: 15px;
+}
+
+.button-group button {
+  flex: 1;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.2s;
+}
+
+.button-group button:hover { opacity: 0.8; }
+
+.fav-btn { 
+  background-color: #ffc107; 
+  color: #000; 
+}
+
+.del-btn { 
+  background-color: #dc3545; 
+  color: #fff; 
+}
